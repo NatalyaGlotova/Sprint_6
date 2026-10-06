@@ -27,5 +27,5 @@ class TestOrderPage:
         order_method = getattr(order_page, method_name)
         order_method(order_info)
         
-        assert order_page.wait_for_element_visible(OrderPageLocators.STATUS_WINDOW), \
+        assert order_page.wait_for_element_visible(OrderPageLocators.FINALL_WINDOW), \
             f"Окно с информацией о заказе не появилось при оформлении через: {button_location}"

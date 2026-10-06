@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-from locators.main_page_locators import *
 
 
 
@@ -16,10 +15,6 @@ class OrderPageLocators():
 
 
     # Локаторы для станций метро
-    #  Динамическая подстановка значения станции
-    METRO_STATION_TEMPLATE = '//button[@data-value="{value}"]'
-    # Абсолютно все станции метро
-    METRO_STATION_ALL = (By.XPATH, '//*[@class="select-search__option"]')
     # Только видимые станции при раскрытии списка
     METRO_STATION_VISIBLE = (By.XPATH, '//*[@class="select-search__row" '
                                        'and @role="menuitem"]')
@@ -58,7 +53,11 @@ class OrderPageLocators():
     MAKE_ORDER_BUTTON = (By.XPATH,
                          '//button[contains(@class, "Button_Middle") '
                          'and contains(text(), "Заказать")]')
-    
+
+    # Кнопка заказа вверху страницы
+    ORDER_BUTTON_HEADER = (By.XPATH, '//button[contains('
+                                     '@class, "Button_Button") and contains('
+                                     'text(), "Заказать")]')
 
     # Локатор для кнопок "Заказать" нижняя часть страницы
     ORDER_BUTTON_ALL_SIZES = (By.XPATH,
@@ -67,16 +66,11 @@ class OrderPageLocators():
                               'and contains(text(), "Заказать")]')
 
     # ФОРМА Подтверждение заказа
-    # Окно с информацией о заказе(Хотите оформить заказ)
-    STATUS_WINDOW = (By.XPATH, '//div[contains(@class,"Order_ModalHeader")]')
     # Кнопка "Да"
     YES_BUTTON = (By.XPATH, '//button[contains(@class, "Button_Button") '
                             'and contains(text(), "Да")]')
-    # Кнопка "Нет"
-    NO_BUTTON = (By.XPATH, '//button[contains(@class, "Button_Button") '
-                            'and contains(text(), "Нет")]' )
 
-    # Окно с информацией о заказе
-    STATUS_WINDOW = (By.XPATH, '//div[contains(@class,"Order_ModalHeader")]')
+    # Окно Заказ создан 
+    FINALL_WINDOW = (By.XPATH, '//div[contains(@class,"Order_ModalHeader") and contains(text(), "Заказ оформлен")]')
 
 

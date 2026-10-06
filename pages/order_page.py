@@ -1,7 +1,6 @@
 import allure
 
 from selenium.webdriver.common.by import By
-from locators.main_page_locators import MainPageLocators
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
 
@@ -10,8 +9,8 @@ class OrderPage(BasePage):
 
     @allure.step("Создание заказа по кнопке в верхней части страницы")
     def create_order_from_header(self, order_dict):
-        self.scroll_to_element(MainPageLocators.ORDER_BUTTON_HEADER)
-        self.click_to_element(MainPageLocators.ORDER_BUTTON_HEADER)
+        self.scroll_to_element(OrderPageLocators.ORDER_BUTTON_HEADER)
+        self.click_to_element(OrderPageLocators.ORDER_BUTTON_HEADER)
         self.fill_first_form(order_dict)
         self.next()
         self.fill_second_form(order_dict)
@@ -87,8 +86,4 @@ class OrderPage(BasePage):
                 station.click()
                 break
 
-
-    @allure.step('Проверяем наличие окна с информацией о заказе')
-    def check_order_status_window(self):
-        return self.wait_for_element_visible(OrderPageLocators.STATUS_WINDOW)
 
